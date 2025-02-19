@@ -135,7 +135,7 @@ class WithTeX(Slide):
         self.play(ReplacementTransform(groupationingmings.copy(), exhm1))
         grouppppp = VGroup(exhm1, exhm)
         self.play(Circumscribe(grouppppp))
-        self.wait(2)
+        self.next_slide()
         # Fade out the last equation
         self.play(FadeOut(exhm1), Restore(label_c), Restore(label_b), Uncreate(angleexample))
         aangleexample = Angle(Line(C, A), Line(C, B), color=YELLOW).scale(0.7, about_point=B)
