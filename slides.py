@@ -15,11 +15,11 @@ class Introduction(Slide):
         self.play(FadeIn(Title))
         Title2 = Text("Πυθαγορείου Θεωρήματος", line_spacing=1, font_size=60)
         Title2.set_color_by_gradient(BLUE, LIGHT_PINK, RED)
-        self.wait(2)
+        self.next_slide()
         self.play(Write(Title2), run_time=3)
-        self.wait(2)
+        self.next_slide()
         self.play(FadeOut(Title, Title2))
-        self.wait(2)
+        self.next_slide()
 
 class WithTeX(Slide):
     def construct(self):
@@ -44,7 +44,7 @@ class WithTeX(Slide):
         self.play(Write(label_A), run_time=0.5)
         self.play(Write(label_B), run_time=0.5)
         self.play(Write(label_C), run_time=0.5)
-        self.wait(2)
+        self.next_slide()
         # Label the sides
         label_a = MathTex(r"\alpha").next_to(Line(A, B).get_midpoint(), LEFT, buff=0.2).scale(1.5)
         label_b = MathTex(r"\beta").next_to(Line(B, C).get_midpoint(), DOWN, buff=0.2).scale(1.5)
@@ -54,7 +54,7 @@ class WithTeX(Slide):
         self.play(Write(label_c), run_time=0.5)
         # Group the triangle, labels, and angle marker
         group = VGroup(triangle, label_A, label_B, label_C, label_a, label_b, label_c, right_angle_marker)
-        self.wait(2)
+        self.next_slide()
         # Shrink the triangle and labels with respect to point A
         self.play(group.animate.scale(0.7, about_point=B))
         label_b.save_state()
@@ -70,7 +70,7 @@ class WithTeX(Slide):
         self.play(Write(Hmitono1))
         self.play(Write(Hmitono2))
         # Wait for a while
-        self.wait(2)
+        self.next_slide()
 
             # Highlight and isolate important words
         important_words = VGroup(
@@ -116,7 +116,7 @@ class WithTeX(Slide):
         )
         groupp = VGroup(equation_group, equal_sign, fraction_line)
         self.play(Circumscribe(groupp))
-        self.wait(2)
+        self.next_slide()
 
         angleexample = Angle(Line(A, B), Line(A, C), color=YELLOW).scale(0.7, about_point=B)
         angleexamplelabel = Text("ω", color=YELLOW).next_to(angleexample).scale(0.7).shift(DOWN * 0.4 + LEFT * 0.4)
@@ -127,9 +127,9 @@ class WithTeX(Slide):
         exhm1[0][2].set_color(RED)
         self.play(Create(angleexample), Write(angleexamplelabel))
         self.play(Write(exhm[0]))
-        self.wait(2)
+        self.next_slide()
         self.play(label_b.animate.set_color(BLUE))
-        self.wait(2)
+        self.next_slide()
         self.play(label_c.animate.set_color(RED))
         groupationingmings = VGroup(label_b, label_c)
         self.play(ReplacementTransform(groupationingmings.copy(), exhm1))
@@ -144,15 +144,15 @@ class WithTeX(Slide):
         aexhm1[0][0].set_color(BLUE)
         aexhm1[0][2].set_color(RED)
         self.play(Create(aangleexample), ReplacementTransform(angleexamplelabel, aangleexamplelabel))
-        self.wait(2)
+        self.next_slide()
         self.play(label_a.animate.set_color(BLUE))
-        self.wait(2)
+        self.next_slide()
         self.play(label_c.animate.set_color(RED))
         agroupationingmings = VGroup(label_a, label_c)
         self.play(ReplacementTransform(agroupationingmings.copy(), aexhm1))
         agrouppppp = VGroup(aexhm1, exhm)
         self.play(Circumscribe(agrouppppp))
-        self.wait(2)
+        self.next_slide()
         # Fade out
         self.play(FadeOut(agrouppppp), FadeOut(groupp), FadeOut(label_a), FadeOut(label_c), FadeOut(label_b), Uncreate(aangleexample), FadeOut(aangleexamplelabel), Uncreate(right_angle_marker), FadeOut(label_A), FadeOut(label_B), FadeOut(label_C), Uncreate(triangle))
 
